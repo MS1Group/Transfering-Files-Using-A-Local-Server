@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📁 Local File Manager</title>
+  <link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<header>
+  <button id="hamburger-btn" class="hamburger-btn">☰</button>
+  <h1>📁 Local File Manager</h1>
+  <button id="search-icon-btn" class="search-icon-btn">🔍</button>
+  <input type="text" id="search" placeholder="Search files...">
+  <button id="new-folder-btn">📁 New Folder</button>
+  <button id="upload-btn">📤 Upload</button>
+  <button id="delete-selected-btn" style="display: none;">🗑️ Delete Selected</button>
+  <button id="info-btn">ℹ️ Info</button>
+  <button id="toggle-dark">🌙</button>
+  <button id="logout-btn">🚪 Logout</button>
+</header>
+
+<!-- Mobile Side Menu -->
+<div id="side-menu" class="side-menu">
+  <div class="side-menu-content">
+    <div class="side-menu-header">
+      <h2>Menu</h2>
+      <button id="close-menu" class="close-menu">✕</button>
+    </div>
+    <button id="mobile-new-folder" class="menu-item">📁 New Folder</button>
+    <button id="mobile-info" class="menu-item">ℹ️ Info</button>
+    <button id="mobile-dark" class="menu-item">🌙 Dark Mode</button>
+    <button id="mobile-logout" class="menu-item">🚪 Logout</button>
+  </div>
+</div>
+<div id="menu-overlay" class="menu-overlay"></div>
+
+<input type="file" id="file-input" style="display: none;" multiple>
+
+<!-- Info Modal -->
+<div id="info-modal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <h2>⌨️ Keyboard Shortcuts & Features</h2>
+    
+    <div class="shortcut-section">
+      <h3>Navigation</h3>
+      <div class="shortcut-item">
+        <kbd>Backspace</kbd>
+        <span>Go up one directory</span>
+      </div>
+      <div class="shortcut-item">
+        <kbd>Click folder</kbd>
+        <span>Open folder</span>
+      </div>
+      <div class="shortcut-item">
+        <kbd>Click file</kbd>
+        <span>Open file in new tab</span>
+      </div>
+    </div>
+
+    <div class="shortcut-section">
+      <h3>Selection</h3>
+      <div class="shortcut-item">
+        <kbd>Ctrl/Cmd + Click</kbd>
+        <span>Select/deselect file</span>
+      </div>
+      <div class="shortcut-item">
+        <kbd>Ctrl/Cmd + A</kbd>
+        <span>Select all files</span>
+      </div>
+      <div class="shortcut-item">
+        <kbd>Esc</kbd>
+        <span>Clear selection</span>
+      </div>
+    </div>
+
+    <div class="shortcut-section">
+      <h3>Actions</h3>
+      <div class="shortcut-item">
+        <kbd>Right-click</kbd>
+        <span>Show context menu (Download/Delete)</span>
+      </div>
+      <div class="shortcut-item">
+        <kbd>Ctrl/Cmd + K</kbd>
+        <span>Focus search bar</span>
+      </div>
+    </div>
+
+    <div class="shortcut-section">
+      <h3>Features</h3>
+      <div class="feature-item">
+        <strong>📤 Upload:</strong> Select multiple files to upload to current folder
+      </div>
+      <div class="feature-item">
+        <strong>📁 New Folder:</strong> Create a new folder in current directory
+      </div>
+      <div class="feature-item">
+        <strong>🗑️ Delete Selected:</strong> Delete multiple selected files at once
+      </div>
+      <div class="feature-item">
+        <strong>🔍 Search:</strong> Filter files by name in current directory
+      </div>
+      <div class="feature-item">
+        <strong>🌙 Dark Mode:</strong> Toggle between light and dark themes
+      </div>
+    </div>
+  </div>
+</div>
+
+<main>
+  <div id="breadcrumb">Main</div>
+  <div id="file-grid"></div>
+</main>
+
+<ul id="context-menu">
+  <li id="download-btn">⬇️ Download</li>
+  <li id="delete-btn">🗑️ Delete</li>
+  <li id="delete-folder-btn" style="display: none;">🗑️ Delete Folder</li>
+</ul>
+
+<script src="/static/script.js"></script>
+</body>
+</html>
